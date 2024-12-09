@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .device-list {
+            padding: 20px;
+        }
+
+        .device-list button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .device-list button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cihazları Kontrol Et</h1>
+    <div class="device-list">
+        <button onclick="sendCommand('device_1')">Cihaz 1'e Komut Gönder</button>
+        <button onclick="sendCommand('device_2')">Cihaz 2'ye Komut Gönder</button>
+        <button onclick="sendCommand('device_3')">Cihaz 3'e Komut Gönder</button>
+    </div>
+
+    <script>
+        async function sendCommand(deviceId) {
+            const response = await fetch(`https://your-server.com/api/sendCommand/${deviceId}`);
+            const result = await response.text();
+            alert(result);
+        }
+    </script>
+</body>
+</html>
